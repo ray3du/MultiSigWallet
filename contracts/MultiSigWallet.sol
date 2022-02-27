@@ -75,9 +75,9 @@ contract MultiSig{
 
     function withdraw(uint amount) public payable isValidUser{
         require(address(this).balance > amount);
-        if(msg.sender != owner){
-            require(checkRequestConfirm() >= maxNumberOfWithdrawConfirmations);
-        }
+        // if(msg.sender != owner){
+        //     require(checkRequestConfirm() >= maxNumberOfWithdrawConfirmations);
+        // }
         payable(msg.sender).transfer(amount);
         emit Withdraw(msg.sender, getBalance());
     }
